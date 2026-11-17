@@ -120,6 +120,33 @@
   @media(max-width:980px){.navlinks{display:none}.hero{grid-template-columns:1fr 1fr;gap:10px}.coinwrap{min-height:330px}.stats{grid-template-columns:repeat(2,1fr)}.risk{grid-template-columns:1fr 1fr}.links-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:700px){.wrap{padding:0 19px}.head{height:70px}.brand{font-size:16px}.brand img{width:34px;height:34px}.head-button{display:none}.hero{grid-template-columns:1fr;text-align:start;min-height:auto;padding-top:49px;padding-bottom:42px}.hero>div{min-width:0}.hero p{font-size:15px}.hero h1{font-size:clamp(41px,12.8vw,60px)}.coinwrap{min-height:300px;margin-top:15px}.hero-coin{width:270px}.coin-label{bottom:8px;right:10px}.actions{flex-direction:column}.btn{width:100%}.stats,.columns,.risk,.market,.links-grid,.faq{grid-template-columns:1fr}.section-head{display:block}.section-head .caption{margin:12px 0 0}section{padding:61px 0}.stat{min-height:120px}.panel{padding:23px}.market-visual{min-height:230px}.footer{flex-direction:column;align-items:flex-start}.link-card{min-height:130px}}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.link-card{transition:none}}
+
+  /* Live TTC/USD₮ market data: direct from STON.fi pool reserves */
+  .hero-quote{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:25px;padding:12px 17px;border:1px solid #544426;border-radius:12px;background:linear-gradient(110deg,#2c2316bd,#111112eb);max-width:440px}
+  .hero-quote-label{font-size:12px;font-weight:770;color:#d5bd80;letter-spacing:.02em}
+  .hero-quote-price{font-variant-numeric:tabular-nums;font-size:20px;color:#ffe28c;font-weight:850;letter-spacing:-.02em;direction:ltr}
+  .hero-quote-meta{font-size:11px;color:#969087;white-space:nowrap}
+  .quote-panel{width:100%;max-width:560px;margin-inline:auto;border:1px solid #70532c;border-radius:22px;padding:33px;background:radial-gradient(ellipse 65% 65% at 85% 0%,#4d351842,transparent 90%),linear-gradient(135deg,#1b1916,#0f1011 85%);box-shadow:0 25px 76px #0007;position:relative;overflow:hidden}
+  .quote-panel:before{content:"";position:absolute;left:28px;right:28px;top:0;height:1px;background:linear-gradient(90deg,transparent,#ffc84e,transparent)}
+  .quote-top{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+  .quote-kicker{font-size:11px;letter-spacing:.13em;color:#bbaa83;text-transform:uppercase;font-weight:800}
+  .quote-state{display:inline-flex;align-items:center;gap:8px;padding:5px 10px;border:1px solid #4b4231;background:#292418;border-radius:100px;font-size:11px;color:#d8b864;font-weight:740}
+  .quote-state[data-state="ready"]{color:#8bd6b6;border-color:#2e6755;background:#152b25}
+  .quote-state[data-state="error"]{color:#e9b4a5;border-color:#694039;background:#30201d}
+  .quote-state[data-state="stale"]{color:#f4ca88;border-color:#6b5336;background:#332819}
+  .quote-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor}
+  .quote-price{font-variant-numeric:tabular-nums;font-weight:850;letter-spacing:-.045em;font-size:clamp(30px,4vw,49px);line-height:1.25;color:#ffe39a;margin:25px 0 5px;text-align:start;overflow-wrap:anywhere}
+  .quote-pair{font-size:12px;color:#a79d87;letter-spacing:.025em}
+  .quote-metrics{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px;padding:21px 0;border-block:1px solid #423725}
+  .quote-metric span{display:block;color:#aa9f89;font-size:12px;margin-bottom:8px}
+  .quote-metric strong{color:#f8edd4;font-size:20px;font-variant-numeric:tabular-nums;display:block;line-height:1.25;overflow-wrap:anywhere}
+  .quote-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:19px}
+  .quote-updated{font-size:11px;color:#9e9688}
+  .quote-refresh{padding:8px 12px;border:1px solid #6b542c;color:#f3d57c;border-radius:9px;background:#222019;cursor:pointer;font-weight:720;font-size:12px}
+  .quote-refresh:disabled{opacity:.5;cursor:wait}
+  .quote-fineprint{font-size:11px;color:#89847c;line-height:1.7;margin:18px 0 0;max-width:none}
+  [dir="rtl"] .quote-price,[dir="rtl"] .hero-quote-price,[dir="rtl"] .quote-metric strong{direction:ltr;text-align:start;unicode-bidi:isolate}
+  @media(max-width:700px){.hero-quote{max-width:none;gap:8px;padding:12px}.hero-quote-price{font-size:19px}.quote-panel{padding:22px}.quote-price{font-size:32px}.quote-metrics{gap:12px}}
 </style>
 </head>
 <body>
@@ -145,6 +172,11 @@
         <h1>TwoTwo<span class="gold">Coin.</span></h1>
         <p data-en="A recognizable identity for the TwoTwo community, represented by the number 22. A real TON Jetton with a public contract and an active decentralized trading pool." data-fa="هویت اختصاصی مجموعهٔ TwoTwo با نماد ۲۲؛ یک توکن واقعی روی شبکهٔ TON با قرارداد عمومی و استخر معاملاتی فعال.">A recognizable identity for the TwoTwo community, represented by the number 22. A real TON Jetton with a public contract and an active decentralized trading pool.</p>
         <div class="actions"><a class="btn btn-primary" href="https://app.ston.fi/swap?ft=USD%E2%82%AE&amp;tt=EQB61AaVFyHygdTILmkIWHDuvaq1UdAsQwGOAzqm9cI6bNgL" target="_blank" rel="noopener noreferrer" data-en="Explore TTC market ↗" data-fa="مشاهدهٔ بازار TTC ↗">Explore TTC market ↗</a><a class="btn btn-secondary" href="#token" data-en="Token details ↓" data-fa="مشخصات توکن ↓">Token details ↓</a></div>
+        <div class="hero-quote" aria-label="TTC spot price">
+          <span class="hero-quote-label" data-en="TTC spot price" data-fa="قیمت لحظه‌ای TTC">TTC spot price</span>
+          <strong id="heroSpot" class="hero-quote-price" dir="ltr">—</strong>
+          <span id="heroQuoteMeta" class="hero-quote-meta" data-en="Fetching from STON.fi…" data-fa="دریافت از STON.fi…">Fetching from STON.fi…</span>
+        </div>
         <p class="mini-disclaimer" data-en="Prices are set by swaps, not by promises. Always verify the contract address." data-fa="قیمت به معاملات وابسته است، نه وعده‌ها. همیشه آدرس قرارداد را بررسی کنید.">Prices are set by swaps, not by promises. Always verify the contract address.</p>
       </div>
       <div class="coinwrap"><img class="hero-coin" src="./twotwocoin-logo.png" alt="Gold TwoTwoCoin coin logo bearing the number 22" width="500" height="500"><div class="coin-label"><span class="pulse"></span><span data-en="LIVE · TON MAINNET" data-fa="فعال · شبکهٔ اصلی TON">LIVE · TON MAINNET</span></div></div>
@@ -166,7 +198,21 @@
   </div></section>
   <section class="dark" id="market"><div class="wrap market">
     <div><p class="kicker" data-en="The market" data-fa="بازار">The market</p><h2 data-en="A live pool. A real market." data-fa="استخر فعال؛ بازار واقعی">A live pool. A real market.</h2><p class="caption" style="margin-top:20px" data-en="TTC can be quoted and swapped on STON.fi. There is no guaranteed floor price or ability to sell all holdings at the current displayed quote. Low liquidity means high slippage." data-fa="TTC در STON.fi قابل‌قیمت‌گیری و معامله است. هیچ کف قیمت یا تضمینی برای فروش کل موجودی با قیمت نمایشی وجود ندارد؛ نقدینگی کم یعنی لغزش قیمت بالا.">TTC can be quoted and swapped on STON.fi. There is no guaranteed floor price or ability to sell all holdings at the current displayed quote. Low liquidity means high slippage.</p><div class="actions"><a href="https://app.ston.fi/swap?ft=USD%E2%82%AE&amp;tt=EQB61AaVFyHygdTILmkIWHDuvaq1UdAsQwGOAzqm9cI6bNgL" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-en="Trade on STON.fi ↗" data-fa="معامله در STON.fi ↗">Trade on STON.fi ↗</a></div><div class="notice" data-en="Important: The USD value shown by a wallet or DEX is an estimate, not cash reserves or a guaranteed redemption value." data-fa="مهم: ارزش دلاری نمایش‌داده‌شده در کیف پول یا صرافی تخمینی است، نه موجودی نقدی قابل‌برداشت یا ارزش تضمین‌شده.">Important: The USD value shown by a wallet or DEX is an estimate, not cash reserves or a guaranteed redemption value.</div></div>
-    <div class="market-visual"><div class="big">TTC / USD₮</div><div class="small" data-en="Decentralized liquidity pool" data-fa="استخر نقدینگی غیرمتمرکز">Decentralized liquidity pool</div></div>
+    <div class="quote-panel" id="ttc-live-market">
+      <div class="quote-top"><span class="quote-kicker" data-en="STON.fi · Pool spot price" data-fa="STON.fi · قیمت لحظه‌ای استخر">STON.fi · Pool spot price</span>
+        <span class="quote-state" id="quoteState" data-state="loading" role="status"><span class="quote-dot"></span><span id="quoteStatusText">Connecting</span></span>
+      </div>
+      <div id="quotePrice" class="quote-price" dir="ltr" aria-live="polite">—</div>
+      <div class="quote-pair" dir="ltr" data-en="USDT per 1 TTC · TON Mainnet" data-fa="USDT برای هر ۱ TTC · شبکه TON">USDT per 1 TTC · TON Mainnet</div>
+      <div class="quote-metrics">
+        <div class="quote-metric"><span data-en="Pool liquidity (est.)" data-fa="ارزش نقدینگی استخر (تقریبی)">Pool liquidity (est.)</span><strong id="quoteTvl" dir="ltr">—</strong></div>
+        <div class="quote-metric"><span data-en="24h swap volume" data-fa="حجم معاملات ۲۴ ساعته">24h swap volume</span><strong id="quoteVolume" dir="ltr">—</strong></div>
+        <div class="quote-metric"><span data-en="USDT reserve" data-fa="ذخیرهٔ تتر استخر">USDT reserve</span><strong id="quoteReserveUSDT" dir="ltr">—</strong></div>
+        <div class="quote-metric"><span data-en="TTC reserve" data-fa="ذخیرهٔ TTC استخر">TTC reserve</span><strong id="quoteReserveTTC" dir="ltr">—</strong></div>
+      </div>
+      <div class="quote-foot"><span class="quote-updated" id="quoteUpdated" role="status">Waiting for market data</span><button class="quote-refresh" type="button" id="refreshQuote" data-en="Refresh ↻" data-fa="به‌روزرسانی ↻">Refresh ↻</button></div>
+      <p class="quote-fineprint" data-en="Automatically checked every 30 seconds. Spot price = pool USDT reserve ÷ TTC reserve. Swap prices differ after fees and slippage. Not a guaranteed sell value." data-fa="بررسی خودکار هر ۳۰ ثانیه. قیمت از تقسیم ذخیرهٔ USDT بر ذخیرهٔ TTC محاسبه می‌شود. قیمت نهایی معامله به‌دلیل کارمزد و لغزش متفاوت است و ارزش فروش تضمینی نیست.">Automatically checked every 30 seconds. Spot price = pool USDT reserve ÷ TTC reserve. Swap prices differ after fees and slippage. Not a guaranteed sell value.</p>
+    </div>
   </div></section>
   <section id="transparency"><div class="wrap">
     <div class="section-head"><div><p class="kicker" data-en="Transparency first" data-fa="اول شفافیت">Transparency first</p><h2 data-en="Know what you hold." data-fa="بدونید چی در اختیار دارید">Know what you hold.</h2></div><div class="pill pill-outline" data-en="No independent audit claimed" data-fa="ممیزی امنیتی مستقل انجام نشده">No independent audit claimed</div></div>
@@ -195,6 +241,79 @@
     langButton.addEventListener('click',()=>setLang(lang==='fa'?'en':'fa'));
     document.getElementById('year').textContent=String(new Date().getFullYear());
     document.getElementById('copyContract').addEventListener('click',async()=>{const btn=document.getElementById('copyContract');try{await navigator.clipboard.writeText(address);btn.textContent=lang==='fa'?'کپی شد ✓':'Copied ✓';setTimeout(()=>{btn.textContent=btn.dataset[lang]},1800)}catch(e){const el=document.getElementById('contract');const range=document.createRange();range.selectNodeContents(el);const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);}});
+
+    // Read-only public STON.fi API; this page never connects a wallet or signs a transaction.
+    const POOL_ADDRESS='EQCTpj8zA8J2m1H2bq6JCS-Iu71f0hXYoSauRPlGK1AYavOD';
+    const USDT_ADDRESS='EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs';
+    const API_URL='https://api.ston.fi/v1/pools/'+encodeURIComponent(POOL_ADDRESS);
+    const liveEls={
+      hero:document.getElementById('heroSpot'),heroMeta:document.getElementById('heroQuoteMeta'),
+      price:document.getElementById('quotePrice'),state:document.getElementById('quoteState'),
+      stateText:document.getElementById('quoteStatusText'),tvl:document.getElementById('quoteTvl'),
+      volume:document.getElementById('quoteVolume'),usdt:document.getElementById('quoteReserveUSDT'),
+      ttc:document.getElementById('quoteReserveTTC'),updated:document.getElementById('quoteUpdated'),
+      refresh:document.getElementById('refreshQuote')
+    };
+    const priceFormat=new Intl.NumberFormat('en-US',{maximumSignificantDigits:7});
+    const moneyFormat=new Intl.NumberFormat('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+    const qtyFormat=new Intl.NumberFormat('en-US',{maximumFractionDigits:2});
+    let liveData=null, lastSuccess=null, liveState='loading', requestBusy=false;
+    function showQuote(){
+      const fa=lang==='fa';
+      liveEls.state.dataset.state=liveState;
+      liveEls.stateText.textContent=({ready:fa?'به‌روز':'Updated',loading:fa?'در حال دریافت':'Loading',stale:fa?'دادهٔ قبلی':'Stale data',error:fa?'در دسترس نیست':'Unavailable'})[liveState];
+      liveEls.heroMeta.textContent=({ready:fa?'از استخر STON.fi':'From STON.fi',loading:fa?'در حال دریافت…':'Fetching…',stale:fa?'قیمت قبلی، اتصال قطع':'Old price, offline',error:fa?'داده در دسترس نیست':'Data unavailable'})[liveState];
+      if(liveData){
+        const price='$'+priceFormat.format(liveData.price);
+        liveEls.price.textContent=price;
+        liveEls.hero.textContent=price;
+        liveEls.tvl.textContent=liveData.tvl===null?'—':'$'+moneyFormat.format(liveData.tvl);
+        liveEls.volume.textContent=liveData.volume===null?'—':'$'+moneyFormat.format(liveData.volume);
+        liveEls.usdt.textContent=qtyFormat.format(liveData.usdt)+' USDT';
+        liveEls.ttc.textContent=qtyFormat.format(liveData.ttc)+' TTC';
+      }else{
+        liveEls.price.textContent='—';liveEls.hero.textContent='—';
+        liveEls.tvl.textContent='—';liveEls.volume.textContent='—';
+        liveEls.usdt.textContent='—';liveEls.ttc.textContent='—';
+      }
+      const when=lastSuccess?new Intl.DateTimeFormat(fa?'fa-IR':'en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(lastSuccess):null;
+      if(liveState==='loading'&&!liveData)liveEls.updated.textContent=fa?'در حال دریافت دادهٔ استخر…':'Connecting to pool…';
+      else if(when)liveEls.updated.textContent=(fa?'آخرین دریافت: ':'Last update: ')+when+(liveState==='stale'?(fa?' · نیاز به تازه‌سازی':' · may be outdated'):'');
+      else liveEls.updated.textContent=fa?'امکان دریافت داده نیست. دوباره تلاش کنید.':'Unable to load price. Try again.';
+      liveEls.refresh.disabled=requestBusy;
+    }
+    async function updatePrice(){
+      if(requestBusy)return;
+      requestBusy=true;
+      if(!liveData)liveState='loading';
+      showQuote();
+      const ctrl=new AbortController();
+      const abortId=setTimeout(()=>ctrl.abort(),10000);
+      try{
+        const res=await fetch(API_URL,{method:'GET',cache:'no-store',headers:{'Accept':'application/json'},signal:ctrl.signal});
+        if(!res.ok)throw new Error('Pool API HTTP '+res.status);
+        const json=await res.json();const p=json&&json.pool;
+        if(!p||p.address!==POOL_ADDRESS||p.token0_address!==address||p.token1_address!==USDT_ADDRESS||p.deprecated===true)throw new Error('Pool identity did not match');
+        const ttc=Number(p.reserve0)/1e9,usdt=Number(p.reserve1)/1e6;
+        const tvl=p.lp_total_supply_usd===null||p.lp_total_supply_usd===undefined?null:Number(p.lp_total_supply_usd);
+        const volume=p.volume_24h_usd===null||p.volume_24h_usd===undefined?null:Number(p.volume_24h_usd);
+        const price=usdt/ttc;
+        if(!Number.isFinite(price)||price<=0||!Number.isFinite(ttc)||!Number.isFinite(usdt)||ttc<=0||usdt<=0||tvl!==null&&(!Number.isFinite(tvl)||tvl<0)||volume!==null&&(!Number.isFinite(volume)||volume<0))throw new Error('Invalid pool reserves');
+        liveData={price,ttc,usdt,tvl,volume};
+        lastSuccess=new Date();liveState='ready';
+      }catch(err){
+        console.warn('TTC live pool data unavailable:',err.message);
+        liveState=liveData?'stale':'error';
+      }finally{
+        clearTimeout(abortId);requestBusy=false;showQuote();
+      }
+    }
+    liveEls.refresh.addEventListener('click',updatePrice);
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)updatePrice();});
+    window.setInterval(()=>{if(!document.hidden)updatePrice();},30000);
+    // Preserve bilingual status text when the language toggle is used.
+    langButton.addEventListener('click',showQuote);
+    showQuote();updatePrice();
   })();
 </script>
 </body>
